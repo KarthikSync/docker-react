@@ -1,0 +1,15 @@
+FROM node:alpine
+
+WORKDIR '/usr/app'
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+#Install some dependencies
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
