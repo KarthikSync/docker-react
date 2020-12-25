@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t karthiksync/docker-react -f Dockerfile.dev . 
+
+script:
+  - docker run karthiksync/docker-react npm run test -- --coverage
